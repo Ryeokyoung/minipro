@@ -1,22 +1,22 @@
 package com.javaex.phonebook;
 
-public class Phone {
+public class Person {
 
 	
 	//필드 
-	private String name;
-	private String hp;
-	private String company;
+	String name;
+	String hp;
+	String company;
 	
 	
 	
 	
 	//생성자
-	public Phone() {
+	public Person() {
 	}
 	
 	
-	public Phone(String name, String hp, String company) {
+	public Person(String name, String hp, String company) {
 		
 		this.name = name;
 		this.hp = hp;
