@@ -22,7 +22,6 @@ public class Phonebook1 {
 		Scanner sc = new Scanner(System.in);
 		
 		while(true) { 
-			Person p = new Person();
 			String str = br.readLine();
 			
 			if(str==null) {
@@ -35,19 +34,11 @@ public class Phonebook1 {
 			String name = phoneDB[0];
 			String hp = phoneDB[1];
 			String company = phoneDB[2];
+			Person p = new Person(name,hp,company);
 			PhoneList.add(p);
 			} 
 			Writer fw = new FileWriter("./PhoneDB.txt"); { 
 			BufferedWriter bw = new BufferedWriter(fw);
-				
-			for(Person phone1 : PhoneList) {
-					String saveStr = phone1.getName() + "," + phone1.getHp() + "," + phone1.getCompany();
-					System.out.println(saveStr);
-			
-				
-					bw.newLine();
-					bw.write(saveStr);
-			}
 				
 			
 		System.out.println("*******************************");
@@ -78,15 +69,23 @@ public class Phonebook1 {
 			System.out.println("<2.등록>");
 			Person p01 = new Person();
 			System.out.print(">이름: ");
-			p01.name = sc.next();
+			p01.name = sc.nextLine();
 			System.out.print(">휴대전화: ");
-			p01.hp = sc.next();
+			p01.hp = sc.nextLine();
 			System.out.print(">회사전화: ");
-			p01.company = sc.next();
+			p01.company = sc.nextLine();
 			PhoneList.add(p01);
 			System.out.println("등록되었습니다.");
 			break;
 		}
+		}
+		for(Person phone1 : PhoneList) {
+			String saveStr = phone1.getName() + "," + phone1.getHp() + "," + phone1.getCompany();
+			System.out.println(saveStr);
+			
+			
+			bw.newLine();
+			bw.write(saveStr);
 		}
 			bw.close();
 			br.close();
@@ -95,3 +94,4 @@ public class Phonebook1 {
 			sc.close();
 }
 }
+
